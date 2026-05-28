@@ -75,7 +75,7 @@ h1 {
 }
 
 .sinhu img {
-  width: 160px; /* Juster størrelsen på Sinhu-billedet */
+  width: 300px; /* Juster størrelsen på Sinhu-billedet */
   height: auto; /* Bevarer billedets proportioner */
   top: 15%;
 }
