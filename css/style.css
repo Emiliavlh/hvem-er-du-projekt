@@ -2,41 +2,45 @@ body {
   margin: 0;
   padding: 0;
   background-color: #ebe4d2;
-  overflow: hidden;
+  overflow: auto;
 }
 
-@media screen and (max-width: 1024px) {
-  body {
-    overflow: auto;
-  }
+.container-ipad {
+  height: 100vh;
+  aspect-ratio: 3 / 4;
+  margin: 0 auto;
+  background-image: url("../img/baggrund.png");
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  overflow: auto;
+}
 
-  .container-ipad {
-    max-height: none !important;
-    height: 100vh !important;
-    padding: 20px;
-  }
+h1 {
+  font-size: 50px;
+}
 
-  h1 {
-    font-size: 48px;
-  }
+.sinhu img {
+  width: 180px;
+}
 
-  .sinhu img {
-    width: 180px;
-  }
+.sinhu-vinger {
+  width: 450px;
+  height: 220px;
+}
 
-  .sinhu-vinger {
-    width: 450px;
-    height: 220px;
-  }
+.hvorfor-tekst {
+  font-size: 46px;
+}
 
-  .hvorfor-tekst {
-    font-size: 45px;
-  }
-  
-  .tilbage-forside-knap {
-    padding: 15px 60px;
-    font-size: 24px;
-  }
+.tilbage-forside-knap {
+  padding: 15px 60px;
+  font-size: 24px;
 }
 
 .container-ipad {
