@@ -1,53 +1,74 @@
+/* ================================================
+   GENEREL OPSÃ†TNING
+   ================================================ */
+
 body {
   margin: 0;
   padding: 0;
-  background-color: #ebe4d2; /* Beige farve i baggrunden */
-  overflow: hidden; /* Ingen scroll på desktop */
+  background-color: #ebe4d2; /* Beige baggrundsfarve */
+  overflow: auto; /* Tillad scroll pÃ¥ tablet og mobil */
 }
 
+
+/* ================================================
+   HOVED-CONTAINER
+   Fylder hele skÃ¦rmen og centrerer indholdet
+   ================================================ */
+
 .container-ipad {
-  height: 100vh; /* Fyld hele skærmen */
-  aspect-ratio: 3 / 4; /* iPad-format (højere end bred) */
-  margin: 0 auto; /* Centrer på skærmen */
+  min-height: 100vh; /* Mindst hele skÃ¦rmhÃ¸jden */
+  width: 100%;
+  max-width: 768px; /* Maks bredde svarende til iPad 6 portrÃ¦t */
+  margin: 0 auto; /* Centrer vandret */
 
   background-image: url("../img/baggrund.png");
-  background-size: cover; /* Udfyld uden at strække */
+  background-size: cover; /* Udfyld uden at strÃ¦kke */
   background-position: center;
 
   padding: 20px;
-  box-sizing: border-box; /* Padding tælles ind i størrelsen */
+  box-sizing: border-box; /* Padding tÃ¦lles ind i stÃ¸rrelsen */
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   position: relative;
-  overflow: auto; /* Tillad scroll hvis der er for meget indhold */
+  overflow: visible; /* Lad indhold flyde naturligt */
 }
+
+
+/* ================================================
+   HVID BOKS
+   Flyder i normal dokumentflow i stedet for
+   absolut positionering, som bryder iPad-layout
+   ================================================ */
 
 .hvid-boks {
   width: 90%;
-  height: 90%;
   background-color: rgba(255, 255, 255, 0.81); /* Halvt gennemsigtig hvid */
-  border-radius: 45.54px; /* Afrundede hjørner */
-  position: absolute;
-  z-index: 1; /* Bag det meste */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Centrer perfekt */
-  padding: 40px;
+  border-radius: 45.54px; /* Afrundede hjÃ¸rner */
+  position: relative; /* Flyder med siden i stedet for absolut placering */
+  z-index: 1;
+  margin: 5% auto; /* Erstatning for top/left/transform-centrering */
+  padding: 40px 40px 80px; /* Ekstra luft i bunden til knappen */
   box-sizing: border-box;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* Alt ligger i midten */
+  justify-content: flex-start; /* Elementer starter fra toppen */
+  gap: 20px; /* Afstand mellem flex-elementer */
 }
+
+
+/* ================================================
+   OVERSKRIFTER
+   ================================================ */
 
 h1 {
   font-family: yrsa, sans-serif;
   font-size: 50px;
-  color: #345a7c; /* Mørkblå */
+  color: #345a7c; /* MÃ¸rkblÃ¥ */
   text-align: center;
   margin: -20px 0 0 0;
   z-index: 2;
@@ -61,43 +82,61 @@ h1 {
   z-index: 2;
 }
 
+
+/* ================================================
+   SINHU-BILLEDE
+   BegrÃ¦nset bredde sÃ¥ det ikke flyder ud pÃ¥
+   smÃ¥ skÃ¦rme og iPads i liggende format
+   ================================================ */
+
 .sinhu {
-  margin-top: auto; /* Plads mellem titler og billede */
-  z-index: 5; /* Vises foran vingerne */
+  z-index: 5;
   position: relative;
 }
 
 .sinhu img {
-  width: auto;
+  width: 100%;
+  max-width: 280px; /* Forhindrer billedet i at blive for stort */
   height: auto; /* Hold proportioner */
 }
 
+
+/* ================================================
+   VINGE-ANIMATION
+   Centreret bag Sinhu-billedet
+   ================================================ */
+
 .sinhu-vinger {
-  width: auto;
+  max-width: 340px; /* BegrÃ¦nset stÃ¸rrelse som Sinhu-billedet */
   height: auto;
   position: absolute;
   z-index: 4; /* Bag Sinhu */
   left: 50%;
-  transform: translateX(-50%); /* Centrer horisontalt */
+  transform: translateX(-50%); /* Centrer vandret */
   top: 25%;
 }
 
+
+/* ================================================
+   HVORFOR-BOKS
+   Flyder nu med siden i stedet for at vÃ¦re
+   absolut placeret med top: 70% (som bryder
+   layout pÃ¥ iPad)
+   ================================================ */
+
 .hvorfor-box {
   width: 83%;
-  max-width: 600px; /* Ikke for bred på store skærme */
-  background-color: #c1cdda; /* Lyseblå */
+  max-width: 600px;
+  background-color: #c1cdda; /* LyseblÃ¥ */
   padding: 20px;
   z-index: 5;
-  position: absolute;
-  top: 70%; /* Nederst på siden */
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative; /* Flyder med siden */
 
   display: flex;
   flex-direction: row; /* Tekst og pil ved siden af hinanden */
   align-items: center;
   justify-content: center;
-  gap: 15px; /* Plads mellem elementer */
+  gap: 15px;
 }
 
 .hvorfor-tekst {
@@ -114,19 +153,24 @@ h1 {
   z-index: 5;
 }
 
+
+/* ================================================
+   TILBAGE-KNAP
+   Flyder med siden i stedet for absolut
+   placering med bottom: 60px (upÃ¥lidelig pÃ¥ iPad)
+   ================================================ */
+
 .tilbage-forside-knap {
-  position: absolute;
-  bottom: 60px;
+  position: relative; /* Flyder med siden */
   z-index: 6;
-  left: 50%;
-  transform: translateX(-50%); /* Centrer */
-  padding: 15px 60px; /* Plads rundt om teksten */
+  margin-top: 10px; /* Lille luft over knappen */
+  padding: 15px 60px;
   font-size: 15px;
   font-family: yrsa, sans-serif;
   background-color: #e9a3a0; /* Rosenfarvet */
   color: #355c7d;
-  border: 4px solid #c65753; /* Rød kant */
-  border-radius: 50px; /* Afrundt som pille */
+  border: 4px solid #c65753; /* RÃ¸d kant */
+  border-radius: 50px; /* Pille-form */
   box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.15); /* Skygge under */
   cursor: pointer;
   display: flex;
@@ -137,11 +181,11 @@ h1 {
 .tilbage-forside-knap img {
   width: 8px;
   height: auto;
-  margin-left: -30px; /* Tæt på kanten */
+  margin-left: -30px; /* TÃ¦t pÃ¥ kanten */
 }
 
 .tilbage-forside-knap::after {
-  content: ""; /* Glans-effekt */
+  content: ""; /* Glans-effekt pÃ¥ knappen */
   position: absolute;
   top: 8px;
   right: 10px;
@@ -150,4 +194,45 @@ h1 {
   background-color: rgba(255, 255, 255, 0.6);
   border-radius: 100%;
   transform: rotate(15deg);
+}
+
+
+/* ================================================
+   RESPONSIVE: TABLET OG MOBIL
+   Tilpasser fontstÃ¸rrelser til mindre skÃ¦rme
+   ================================================ */
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 38px; /* Mindre overskrift pÃ¥ iPad */
+  }
+
+  .hvorfor-tekst {
+    font-size: 34px; /* SkalÃ©r ned til tablet */
+  }
+
+  .du-er-tekst {
+    font-size: 24px;
+  }
+}
+
+
+/* ================================================
+   RESPONSIVE: LIGGENDE FORMAT
+   Justerer layout nÃ¥r iPad holdes pÃ¥ siden
+   ================================================ */
+
+@media (orientation: landscape) and (max-height: 768px) {
+  .hvid-boks {
+    padding: 24px 40px 60px; /* Mindre padding i landscape */
+    gap: 12px;
+  }
+
+  h1 {
+    font-size: 32px; /* Endnu mindre i landscape */
+  }
+
+  .sinhu img {
+    max-width: 180px; /* SkalÃ©r Sinhu ned i landscape */
+  }
 }
