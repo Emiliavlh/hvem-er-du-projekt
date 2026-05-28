@@ -5,6 +5,12 @@ body {
   overflow: hidden; /* Fjerner scrollbar på pc */
 }
 
+@media screen and (max-width: 1024px) {
+  body {
+    overflow: auto; /* Tillader scroll på iPad, hvis indholdet mod forventning kniber */
+  }
+}
+
 .container-ipad {
   /* HØJDE-LOGIK TIL PC (SÅ MAN IKKE SKAL SCROLLE): */
   height: 100vh; /* Tvinger kassen til at matche pc-skærmens højde */
