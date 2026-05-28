@@ -1,0 +1,170 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ebe4d2; /* Beige baggrund udenfor iPad */
+  overflow: hidden; /* Fjerner scrollbar på pc */
+}
+
+.container-ipad {
+  /* HØJDE-LOGIK TIL PC (SÅ MAN IKKE SKAL SCROLLE): */
+  height: 100vh; /* Tvinger kassen til at matche pc-skærmens højde */
+  max-height: 1024px; /* Men den må aldrig blive højere end en ægte iPad-skærm */
+
+  aspect-ratio: 3 / 4; /* Computeren regner automatisk den rigtige bredde ud */
+  margin: 0 auto; /* Centrerer kassen på midten uden top/bund-margin */
+
+  /* Baggrundsbillede */
+  background-image: url("../img/baggrund.png");
+  background-size: cover;
+  background-position: center;
+
+  padding: 40px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  overflow: hidden; /* Sikrer at intet stikker ud af iPad'en */
+}
+
+.hvid-boks {
+  width: 90%;
+  height: 90%;
+  /* Boksen følger iPad'ens form pænt. */
+  background-color: rgba(255, 255, 255, 0.81);
+  border-radius: 45.54px;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 40px; /* Så indholdet ikke rører kanterne */
+  box-sizing: border-box; /* Sørger for at padding ikke gør den hvide boks for stor */
+
+  /* Gør det nemt at styre teksten indeni den hvide boks: */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Centrerer tekst og indhold lodret i den hvide boks */
+}
+
+h1 {
+  font-family: yrsa, sans-serif;
+  font-size: 58px;
+  color: #345a7c;
+  z-index: 2;
+  text-align: center;
+  margin: -20px;
+}
+
+.du-er-tekst {
+  font-family: yrsa, sans-serif;
+  font-size: 30px;
+  color: #345a7c;
+  z-index: 2;
+
+  text-align: center;
+}
+
+.sinhu img {
+  width: 160px; /* Juster størrelsen på Sinhu-billedet */
+  height: auto; /* Bevarer billedets proportioner */
+  top: 15%;
+}
+.sinhu {
+  margin-top: 120px; /* Tilføj lidt afstand over Sinhu-billedet */
+  z-index: 5; /* Foran vingerne */
+  position: relative;
+}
+
+.sinhu-vinger {
+  width: 510px; /* Juster størrelsen på Sinhu-vingerne */
+  height: 250px; /* Bevarer vingernes proportioner */
+  position: absolute; /* Placér bag Sinhu */
+  z-index: 4; /* Foran hvid-boks, bag Sinhu */
+  left: 50%;
+  transform: translateX(-50%);
+  top: 25%;
+}
+
+.hvorfor-box {
+  width: 83%;
+  max-width: 600px; /* Begrænser bredden på "Hvorfor?"-boksen for bedre læsbarhed */
+  background-color: #c1cdda;
+  padding: 20px;
+  z-index: 5;
+  position: absolute; /* Tillader præcis placering */
+  top: 70%; /* Flyttet højere op, væk fra Sinhu */
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  flex-direction: row; /* Sætter elementer side by side */
+  align-items: center; /* Centrerer dem vertikalt */
+  justify-content: center; /* Centrerer dem horisontalt */
+  gap: 15px; /* Afstand mellem tekst og pil */
+}
+
+.hvorfor-tekst {
+  font-family: yrsa, sans-serif;
+  font-size: 50px;
+  color: #345a7c;
+  text-align: center;
+  margin: 0; /* Fjerner standard margin fra teksten */
+}
+
+.pil-videre {
+  width: 50px; /* Juster størrelsen på pilen */
+  height: auto; /* Bevarer pilens proportioner */
+  z-index: 5; /* Foran "Hvorfor?"-boksen */
+  right: 50px; /* Placerer pilen mod højre side af boksen */
+  position: absolute; /* Tillader præcis placering */
+}
+
+.tilbage-forside-knap {
+  position: absolute;
+  bottom: 60px;
+  z-index: 6;
+
+  padding: 10px 50px;
+  font-size: 20px;
+  font-family: yrsa, sans-serif;
+  cursor: pointer;
+  outline: none;
+
+  background-color: #e9a3a0;
+  color: #355c7d;
+
+  /* Ramme og afrunding */
+  border: 4px solid #c65753;
+  border-radius: 50px;
+
+  /* Skyggen under knappen */
+  box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.15);
+
+  /* Flexbox for at placere pil og tekst */
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.tilbage-forside-knap img {
+  width: 8px;
+  height: auto;
+  margin-left: -30px; /* Flytter pilen tæt på kanten uden at gøre knappen længere */
+}
+
+/* Det hvide glans-highlight i øverste højre hjørne */
+.tilbage-forside-knap::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  width: 25px;
+  height: 5px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 100%;
+  transform: rotate(15deg);
+}
