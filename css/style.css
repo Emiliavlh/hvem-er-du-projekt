@@ -62,19 +62,19 @@ h1 {
 }
 
 .sinhu {
-  margin-top: 80px; /* Plads mellem titler og billede */
+  margin-top: auto; /* Plads mellem titler og billede */
   z-index: 5; /* Vises foran vingerne */
   position: relative;
 }
 
 .sinhu img {
-  width: 200px;
+  width: auto;
   height: auto; /* Hold proportioner */
 }
 
 .sinhu-vinger {
-  width: 510px;
-  height: 220px;
+  width: auto;
+  height: auto;
   position: absolute;
   z-index: 4; /* Bag Sinhu */
   left: 50%;
