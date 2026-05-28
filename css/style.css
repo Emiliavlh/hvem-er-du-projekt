@@ -1,13 +1,36 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #ebe4d2; /* Beige baggrund udenfor iPad */
-  overflow: hidden; /* Fjerner scrollbar på pc */
+  background-color: #ebe4d2;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 1024px) {
   body {
-    overflow: auto; /* Tillader scroll på iPad, hvis indholdet mod forventning kniber */
+    overflow: auto;
+  }
+
+  .container-ipad {
+    max-height: none !important;
+    height: auto !important;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+
+  .sinhu img {
+    width: 120px;
+  }
+
+  .sinhu-vinger {
+    width: 350px;
+    height: 180px;
+  }
+
+  .hvorfor-tekst {
+    font-size: 36px;
   }
 }
 
@@ -75,7 +98,7 @@ h1 {
 }
 
 .sinhu img {
-  width: 300px; /* Juster størrelsen på Sinhu-billedet */
+  width: 160px; /* Juster størrelsen på Sinhu-billedet */
   height: auto; /* Bevarer billedets proportioner */
   top: 15%;
 }
