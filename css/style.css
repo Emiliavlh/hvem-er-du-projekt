@@ -1,49 +1,53 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #ebe4d2;
-  overflow: auto;
+  background-color: #ebe4d2; /* Beige farve i baggrunden */
+  overflow: hidden; /* Ingen scroll på desktop */
 }
 
 .container-ipad {
-  height: 100vh;
-  aspect-ratio: 3 / 4;
-  margin: 0 auto;
+  height: 100vh; /* Fyld hele skærmen */
+  aspect-ratio: 3 / 4; /* iPad-format (højere end bred) */
+  margin: 0 auto; /* Centrer på skærmen */
+
   background-image: url("../img/baggrund.png");
-  background-size: cover;
+  background-size: cover; /* Udfyld uden at strække */
   background-position: center;
+
   padding: 20px;
-  box-sizing: border-box;
+  box-sizing: border-box; /* Padding tælles ind i størrelsen */
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   position: relative;
-  overflow: auto;
+  overflow: auto; /* Tillad scroll hvis der er for meget indhold */
 }
 
 .hvid-boks {
   width: 90%;
   height: 90%;
-  background-color: rgba(255, 255, 255, 0.81);
-  border-radius: 45.54px;
+  background-color: rgba(255, 255, 255, 0.81); /* Halvt gennemsigtig hvid */
+  border-radius: 45.54px; /* Afrundede hjørner */
   position: absolute;
-  z-index: 1;
+  z-index: 1; /* Bag det meste */
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); /* Centrer perfekt */
   padding: 40px;
   box-sizing: border-box;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: center; /* Alt ligger i midten */
 }
 
 h1 {
   font-family: yrsa, sans-serif;
   font-size: 50px;
-  color: #345a7c;
+  color: #345a7c; /* Mørkblå */
   text-align: center;
   margin: -20px 0 0 0;
   z-index: 2;
@@ -58,41 +62,42 @@ h1 {
 }
 
 .sinhu {
-  margin-top: 120px;
-  z-index: 5;
+  margin-top: 80px; /* Plads mellem titler og billede */
+  z-index: 5; /* Vises foran vingerne */
   position: relative;
 }
 
 .sinhu img {
-  width: 180px;
-  height: auto;
+  width: 200px;
+  height: auto; /* Hold proportioner */
 }
 
 .sinhu-vinger {
-  width: 450px;
+  width: 510px;
   height: 220px;
   position: absolute;
-  z-index: 4;
+  z-index: 4; /* Bag Sinhu */
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%); /* Centrer horisontalt */
   top: 25%;
 }
 
 .hvorfor-box {
   width: 83%;
-  max-width: 600px;
-  background-color: #c1cdda;
+  max-width: 600px; /* Ikke for bred på store skærme */
+  background-color: #c1cdda; /* Lyseblå */
   padding: 20px;
   z-index: 5;
   position: absolute;
-  top: 70%;
+  top: 70%; /* Nederst på siden */
   left: 50%;
   transform: translateX(-50%);
+
   display: flex;
-  flex-direction: row;
+  flex-direction: row; /* Tekst og pil ved siden af hinanden */
   align-items: center;
   justify-content: center;
-  gap: 15px;
+  gap: 15px; /* Plads mellem elementer */
 }
 
 .hvorfor-tekst {
@@ -114,15 +119,15 @@ h1 {
   bottom: 60px;
   z-index: 6;
   left: 50%;
-  transform: translateX(-50%);
-  padding: 15px 60px;
-  font-size: 24px;
+  transform: translateX(-50%); /* Centrer */
+  padding: 15px 60px; /* Plads rundt om teksten */
+  font-size: 15px;
   font-family: yrsa, sans-serif;
-  background-color: #e9a3a0;
+  background-color: #e9a3a0; /* Rosenfarvet */
   color: #355c7d;
-  border: 4px solid #c65753;
-  border-radius: 50px;
-  box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.15);
+  border: 4px solid #c65753; /* Rød kant */
+  border-radius: 50px; /* Afrundt som pille */
+  box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.15); /* Skygge under */
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -132,11 +137,11 @@ h1 {
 .tilbage-forside-knap img {
   width: 8px;
   height: auto;
-  margin-left: -30px;
+  margin-left: -30px; /* Tæt på kanten */
 }
 
 .tilbage-forside-knap::after {
-  content: "";
+  content: ""; /* Glans-effekt */
   position: absolute;
   top: 8px;
   right: 10px;
