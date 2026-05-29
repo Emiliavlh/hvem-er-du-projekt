@@ -1,192 +1,168 @@
 /* ================================================
-   GENEREL OPSÃ†TNING
+   GENEREL OPSÆTNING
    ================================================ */
 
 body {
   margin: 0;
   padding: 0;
-  background-color: #ebe4d2; /* Beige baggrundsfarve */
-  overflow: auto; /* Tillad scroll pÃ¥ tablet og mobil */
+  background-color: #ebe4d2;
+  overflow: hidden;
 }
 
-
 /* ================================================
-   HOVED-CONTAINER
-   Fylder hele skÃ¦rmen og centrerer indholdet
+   HOVED-CONTAINER (iPad-rammen)
    ================================================ */
 
 .container-ipad {
-  min-height: 100vh;
-  width: 100%;
-  max-width: 768px; /* Maks bredde svarende til iPad 6 portrÃ¦t */
-  margin: 0 auto; /* Centrer vandret */
+  height: 100vh;
+  max-height: 1024px;
+  aspect-ratio: 3 / 4;
+  margin: 0 auto;
 
   background-image: url("../img/baggrund.png");
   background-size: cover;
   background-position: center;
 
-  padding: 20px;
+  padding: 40px;
   box-sizing: border-box;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
   position: relative;
-  overflow: visible;
+  overflow: hidden;
 }
-
 
 /* ================================================
    HVID BOKS
-   Flyder i normal dokumentflow â€” ingen absolut
-   positionering, som brÃ¸d layoutet pÃ¥ iPad
    ================================================ */
 
 .hvid-boks {
   width: 90%;
+  height: 90%;
   background-color: rgba(255, 255, 255, 0.81);
   border-radius: 45.54px;
-  position: relative;
+  position: absolute;
   z-index: 1;
-  margin: 5% auto;
-  padding: 40px 0 40px; /* Ingen side-padding â€” lad bÃ¸rn styre det */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   box-sizing: border-box;
+  overflow: hidden;
+}
 
+/* ================================================
+   SKÆRM-SEKTIONER
+   ================================================ */
+
+.skaerm-sektion {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  gap: 0; /* Ingen automatisk gap â€” vi styrer afstand manuelt */
-  overflow: hidden; /* SÃ¸rger for at vinger ikke stikker ud af boksen */
+  justify-content: center;
+  padding: 40px;
+  box-sizing: border-box;
+  position: relative;
 }
 
+.skjult {
+  display: none;
+}
 
 /* ================================================
-   OVERSKRIFTER
+   RESULTAT-SKÆRM
    ================================================ */
-
-h1 {
-  font-family: yrsa, sans-serif;
-  font-size: 50px;
-  color: #345a7c;
-  text-align: center;
-  margin: 0 0 10px 0;
-  padding: 0 20px;
-  z-index: 2;
-}
 
 .du-er-tekst {
   font-family: yrsa, sans-serif;
   font-size: 30px;
   color: #345a7c;
   text-align: center;
-  margin: 20px 0 0 0;
-  z-index: 2;
+  margin: 0;
 }
 
-
-/* ================================================
-   SINHU + VINGER WRAPPER
-   Wrapper sikrer at vinger er relativt til denne
-   container og ikke til .hvid-boks
-   ================================================ */
-
-.sinhu-wrapper {
-  position: relative; /* GÃ¸r vinger absolut i forhold til denne */
-  width: 100%; /* Fuld bredde af hvid-boks */
-  display: flex;
-  justify-content: center;
-  align-items: flex-end; /* Sinhu sidder i bunden af sin wrapper */
-  margin-top: 10px;
-  /* Ingen margin-bottom â€” hvorfor-boksen rammer direkte */
+h1 {
+  font-family: yrsa, sans-serif;
+  font-size: 58px;
+  color: #345a7c;
+  text-align: center;
+  margin: 0;
 }
 
-.sinhu {
+/* Wrapper der holder dukke-billede og vinger */
+.dukke {
   position: relative;
-  z-index: 5; /* Foran vingerne */
-}
-
-.sinhu img {
   width: 100%;
-  max-width: 260px;
-  height: auto;
-  display: block;
+  flex: 1; /* Fylder det ledige rum mellem overskrift og hvorfor-boks */
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 
-
-/* ================================================
-   VINGER
-   Absolut i forhold til .sinhu-wrapper sÃ¥ de
-   kan strÃ¦kke sig til kanten af den hvide boks
-   ================================================ */
-
-.sinhu-vinger {
-  position: absolute;
-  z-index: 4; /* Bag Sinhu */
-  left: 50%;
-  transform: translateX(-50%);
-  top: 20%; /* JustÃ©r dette tal for at flytte vingerne op/ned */
-  width: 90%; /* StrÃ¦kker sig nÃ¦sten til kanten af .hvid-boks */
-  max-width: none; /* Ingen maks-bredde â€” lad den fylde */
-  height: auto;
-}
-
-
-/* ================================================
-   HVORFOR-BOKS
-   StrÃ¦kker sig til kanterne af den hvide boks
-   Ingen ekstra bredde-begrÃ¦nsning
-   ================================================ */
-
-.hvorfor-box {
-  width: 100%; /* Fuld bredde â€” fra kant til kant */
-  background-color: #c1cdda;
-  padding: 20px;
-  box-sizing: border-box;
-  z-index: 5;
+/* Dukke-billedet foran */
+.dukke-billede {
+  height: 70%;
+  width: auto;
+  bottom: 110px;
+  max-width: 60%;
+  object-fit: contain;
   position: relative;
+  z-index: 5;
+  
+}
+
+/* Vinger bag dukken */
+.dukke-vinger {
+  position: absolute;
+  width: 510px;
+  height: auto;
+  top: 10px;
+  z-index: 4;
+}
+
+/* Hvorfor-boksen går kant til kant */
+.hvorfor-box {
+  width: calc(100% + 80px); /* Kompenserer for padding på .skaerm-sektion */
+  margin-left: -40px;
+  margin-right: -40px;
+  background-color: #c1cdda;
+  padding: 20px 30px;
+  z-index: 5;
+  bottom: 110px;
+  position: absolute;
 
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 15px;
+  gap: 20px;
 }
 
 .hvorfor-tekst {
   font-family: yrsa, sans-serif;
-  font-size: 46px;
+  font-size: 50px;
   color: #345a7c;
-  text-align: center;
   margin: 0;
 }
 
 .pil-videre {
   width: 50px;
   height: auto;
-  z-index: 5;
 }
 
-
-/* ================================================
-   TILBAGE-KNAP
-   Flyder med siden â€” ingen absolut positionering
-   ================================================ */
-
+/* Tilbage-knap */
 .tilbage-forside-knap {
-  position: relative;
+  position: absolute;
+  bottom: 30px;
   z-index: 6;
-  margin: 30px auto 0;
-  padding: 15px 60px;
-  font-size: 15px;
+  padding: 10px 50px;
+  font-size: 20px;
   font-family: yrsa, sans-serif;
+  cursor: pointer;
   background-color: #e9a3a0;
   color: #355c7d;
   border: 4px solid #c65753;
   border-radius: 50px;
   box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.15);
-  cursor: pointer;
   display: flex;
   align-items: center;
   gap: 20px;
@@ -199,7 +175,7 @@ h1 {
 }
 
 .tilbage-forside-knap::after {
-  content: ""; /* Glans-effekt */
+  content: "";
   position: absolute;
   top: 8px;
   right: 10px;
@@ -208,55 +184,4 @@ h1 {
   background-color: rgba(255, 255, 255, 0.6);
   border-radius: 100%;
   transform: rotate(15deg);
-}
-
-
-/* ================================================
-   RESPONSIVE: TABLET (iPad 6 portrÃ¦t = 768px)
-   ================================================ */
-
-@media (max-width: 768px) {
-  h1 {
-    font-size: 38px;
-  }
-
-  .hvorfor-tekst {
-    font-size: 34px;
-  }
-
-  .du-er-tekst {
-    font-size: 24px;
-  }
-
-  .sinhu img {
-    max-width: 220px;
-  }
-}
-
-
-/* ================================================
-   RESPONSIVE: LIGGENDE FORMAT
-   Justerer nÃ¥r iPad holdes vandret
-   ================================================ */
-
-@media (orientation: landscape) and (max-height: 768px) {
-  .hvid-boks {
-    padding: 24px 0 30px;
-  }
-
-  h1 {
-    font-size: 32px;
-  }
-
-  .sinhu img {
-    max-width: 160px;
-  }
-
-  .sinhu-vinger {
-    top: 15%;
-  }
-
-  .hvorfor-tekst {
-    font-size: 28px;
-  }
 }
