@@ -115,7 +115,8 @@ h1 {
   position: absolute;
   width: 100%;
   height: auto;
-  top: 200px;
+  top: 25%;
+  left: 0;
   z-index: 4;
 }
 
