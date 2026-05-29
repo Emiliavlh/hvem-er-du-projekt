@@ -113,7 +113,7 @@ h1 {
 /* Vinger bag dukken */
 .dukke-vinger {
   position: absolute;
-  width: 510px;
+  width: 600px;
   height: auto;
   top: 10px;
   z-index: 4;
